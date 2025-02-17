@@ -1,0 +1,118 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 10px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+section {
+    padding: 20px;
+    background: white;
+    margin: 20px auto;
+    width: 80%;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.project {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+}
+
+footer {
+    text-align: center;
+    background: #333;
+    color: white;
+    padding: 10px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+    margin: 10px auto;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.project {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+/* Dark Mode: General */
+.dark-mode {
+    background-color: #121212;
+    color: white;
+}
+
+/* Dark Mode: Header */
+.dark-mode header {
+    background-color: #1e1e1e;
+}
+
+/* Dark Mode: Navigation */
+.dark-mode nav ul li a {
+    color: white;
+}
+
+/* Dark Mode: Sections */
+.dark-mode section {
+    background-color: #1a1a1a;
+    color: white;
+}
+
+/* Dark Mode: Projects */
+.dark-mode .project {
+    background-color: #252525;
+    border-color: #444;
+}
+
+/* Dark Mode: Contact Form */
+.dark-mode input, .dark-mode textarea {
+    background-color: #2c2c2c;
+    color: white;
+    border: 1px solid #555;
+}
+
+/* Dark Mode: Button */
+.dark-mode button {
+    background-color: #fff;
+    color: #222;
+    border: 1px solid #fff;
+}
