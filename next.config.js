@@ -1,10 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: "export", // Ensure Next.js exports static HTML
-  distDir: "out", // Ensure Next.js outputs files into `out/`
+  output: 'export',
+  distDir: 'out',
   images: {
-    unoptimized: true, // Fix images for static export
+    unoptimized: true
   },
+  basePath: "/Arvincoder15.github.io",
+  assetPrefix: "/Arvincoder15.github.io/",
 };
 
 module.exports = nextConfig;
