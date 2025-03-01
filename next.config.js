@@ -1,10 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: "export", // Enables static export
-  distDir: "out",   // Ensures the output directory is 'out'
+  output: "export",
   images: {
-    unoptimized: true, // Fixes image issues in static export
+    unoptimized: true,
   },
+  trailingSlash: true,
+  distDir: "out", // This tells Next.js where to export files
 };
 
 module.exports = nextConfig;

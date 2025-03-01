@@ -3,12 +3,9 @@
     "version": "0.1.0",
     "private": true,
     "scripts": {
-        "dev": "next dev",
         "build": "next build",
-        "export": "next export",
-        "start": "next start",
-        "predeploy": "npm run build && npm run export",
-        "deploy": "gh-pages -d out"
+        "export": "next build && next export",
+        "deploy": "npm run export && gh-pages -d out"
     },
     "dependencies": {
         "next": "^15.2.0",
