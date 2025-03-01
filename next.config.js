@@ -1,12 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
-  distDir: 'out',
+  output: "export", // Enables static export
+  distDir: "out",   // Ensures the output directory is 'out'
   images: {
-    unoptimized: true
+    unoptimized: true, // Fixes image issues in static export
   },
-  basePath: "/Arvincoder15.github.io",
-  assetPrefix: "/Arvincoder15.github.io/",
 };
 
 module.exports = nextConfig;
