@@ -2,16 +2,8 @@
   "version": 3,
   "pages404": true,
   "caseSensitive": false,
-  "basePath": "/Arvincoder15.github.io",
+  "basePath": "",
   "redirects": [
-    {
-      "source": "/Arvincoder15.github.io",
-      "destination": "/Arvincoder15.github.io/",
-      "basePath": false,
-      "internal": true,
-      "statusCode": 308,
-      "regex": "^/Arvincoder15\\.github\\.io$"
-    },
     {
       "source": "/:file((?!\\.well-known(?:/.*)?)(?:[^/]+/)*[^/]+\\.\\w+)/",
       "destination": "/:file",
@@ -60,15 +52,5 @@
     "pathHeader": "x-nextjs-rewritten-path",
     "queryHeader": "x-nextjs-rewritten-query"
   },
-  "rewrites": {
-    "beforeFiles": [
-      {
-        "source": "/Arvincoder15.github.io//_next/:path+",
-        "destination": "/Arvincoder15.github.io/_next/:path+",
-        "regex": "^/Arvincoder15\\.github\\.io//_next(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))(?:/)?$"
-      }
-    ],
-    "afterFiles": [],
-    "fallback": []
-  }
+  "rewrites": []
 }

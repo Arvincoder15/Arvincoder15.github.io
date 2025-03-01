@@ -1,13 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: "export",
-  distDir: "out",
+  distDir: "out", // Next.js will export static files to the 'out' folder
   images: {
-    unoptimized: true
+    unoptimized: true, // Ensures images load properly on GitHub Pages
   },
-  trailingSlash: true,
-  basePath: "/Arvincoder15.github.io",
-  assetPrefix: "/Arvincoder15.github.io/"
+  trailingSlash: true, // Ensures pages are generated as folders with an index.html
 };
 
 module.exports = nextConfig;
