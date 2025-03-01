@@ -1,11 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: "export",
+  distDir: "out",
   images: {
-    unoptimized: true,
+    unoptimized: true
   },
   trailingSlash: true,
-  distDir: "out", // This tells Next.js where to export files
+  basePath: "/Arvincoder15.github.io",
+  assetPrefix: "/Arvincoder15.github.io/"
 };
 
 module.exports = nextConfig;
