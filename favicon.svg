@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
+  <title id="title">Arvin Askari Portfolio Icon</title>
+  <desc id="desc">Minimal monogram icon for portfolio site.</desc>
+  <rect width="64" height="64" rx="14" fill="#141414"/>
+  <path d="M18 47 29 17h6l11 30h-6.5l-2.1-6.2H26.6L24.5 47H18Zm10.5-11.6h7l-3.5-10.4-3.5 10.4Z" fill="#f5efe2"/>
+</svg>

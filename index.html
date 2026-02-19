@@ -3,131 +3,651 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arvin Askari | Portfolio</title>
+    <meta name="description" content="Arvin Askari is a Software Engineer and Data Scientist building practical AI, analytics, and full-stack products.">
+    <meta name="robots" content="index,follow">
+    <meta name="theme-color" content="#f5efe2">
+    <meta name="color-scheme" content="light dark">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Arvin Askari | Software Engineer & Data Scientist">
+    <meta property="og:description" content="Portfolio of AI, analytics, and full-stack projects by Arvin Askari.">
+    <meta property="og:url" content="https://arvincoder15.github.io/">
+    <meta property="og:image" content="https://arvincoder15.github.io/images/arvin.jpeg">
+    <meta property="og:site_name" content="Arvin Askari Portfolio">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Arvin Askari | Software Engineer & Data Scientist">
+    <meta name="twitter:description" content="Portfolio of AI, analytics, and full-stack projects by Arvin Askari.">
+    <meta name="twitter:image" content="https://arvincoder15.github.io/images/arvin.jpeg">
+        <script type="application/ld+json">
+                {
+                    "@context": "https://schema.org",
+                    "@type": "Person",
+                    "name": "Arvin Askari",
+                    "url": "https://arvincoder15.github.io/",
+                    "image": "https://arvincoder15.github.io/images/arvin.jpeg",
+                    "jobTitle": "Software Engineer & Data Scientist",
+                    "sameAs": [
+                        "https://linkedin.com/in/arvin-askari",
+                        "https://github.com/Arvincoder15"
+                    ]
+                }
+        </script>
+    <title>Arvin Askari | Software Engineer & Data Scientist</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://plausible.io">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script defer data-domain="arvincoder15.github.io" src="https://plausible.io/js/script.js"></script>
 </head>
 <body>
-    <header>
-        <img src="images/arvin.png" alt="Arvin Askari" class="profile-pic">
-        <h1>Arvin Askari</h1>
-        <p>First-Year Student | Data Analyst | Full-Stack Developer</p>
-        <nav>
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#contact">Contact</a></li>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <div id="scrollProgress" aria-hidden="true"></div>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#hero" class="logo">Arvin Askari</a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#competitions" class="nav-link">Hackathons</a></li>
+                <li><a href="#writing" class="nav-link">Articles</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+                <li><button id="dark-mode-toggle" class="theme-toggle" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button></li>
             </ul>
-        </nav>
-        <button id="dark-mode-toggle">🌙 Toggle Dark Mode</button>
+            <button class="hamburger" id="hamburger" aria-label="Open menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <main id="main-content">
+    <header id="hero" class="hero">
+        <div class="container hero-layout">
+            <div class="hero-left reveal">
+                <p class="hero-kicker">Queen’s University • Computer Science • Certificate in Business</p>
+                <h1 class="hero-title">Arvin Askari</h1>
+                <p class="hero-subtitle">CS Undergrad · Software Engineer · AI Enthusiast</p>
+                <p class="hero-description">I build practical, high-impact products across AI, analytics, and full-stack development — from RAG healthcare workflows to sports and transit intelligence systems.</p>
+
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary">View My Work</a>
+                    <a href="#contact" id="getInTouchBtn" class="btn btn-secondary">Get In Touch</a>
+                    <button type="button" id="openResumeBtn" class="btn btn-outline">View Resume</button>
+                </div>
+
+                <div class="hero-signature" aria-label="signature">Arvin Askari</div>
+
+                <div class="social-links">
+                    <a href="https://linkedin.com/in/arvin-askari" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/Arvincoder15" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="mailto:arvin.askari@queensu.ca" class="social-icon" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+
+            <div class="hero-right reveal">
+                <div class="hero-photo-wrap">
+                    <img src="images/arvin.jpeg" alt="Portrait of Arvin Askari" class="hero-photo" fetchpriority="high" decoding="async">
+                </div>
+            </div>
+        </div>
     </header>
 
-    <section id="about">
-        <h2>About Me</h2>
-        <p>Hello! I'm Arvin, a Computing Honours student at Queen’s University with a passion for data analysis, web development, and AI-driven solutions.</p>
-    </section>
-
-    <section id="resume">
-        <h2>Resume</h2>
-        <p>Click below to view my resume.</p>
-        <button onclick="toggleResume()">Open/Close My Resume</button>
-
-        <div id="resume-container" style="display: none; margin-top: 20px;">
-            <iframe src="resume.pdf" width="100%" height="600px"></iframe>
-        </div>
-
-        <script>
-        function toggleResume() {
-            var resumeDiv = document.getElementById("resume-container");
-            if (resumeDiv.style.display === "none") {
-                resumeDiv.style.display = "block";
-            } else {
-                resumeDiv.style.display = "none";
-            }
-        }
-</script>
-
-
-    </section>
-
-    
-      
-    <section id="projects">
-        <h2>Projects</h2>
-        <div class="project">
-            <h3>Lease Me Before You Go Go | QHACKS Project</h3>
-            <p>Web application simulating real-world landlord interactions using Flask, React, and AI-powered chatbots.</p>
-            <a href="https://github.com/Arvincoder15/QHacks-Backend" target="_blank">View on GitHub</a>
-        </div>
-        <div class="project">
-            <h3>Police Dodger Game | Grade 12 Project</h3>
-            <p>Python-based arcade game developed using Pygame and Tkinter.</p>
-            <a href="https://https://github.com/Arvincoder15/Police-Dodger-Game" target="_blank">View on GitHub</a>
+    <section class="now-strip reveal" aria-label="Current focus">
+        <div class="container now-strip-inner">
+            <span class="now-label">Now</span>
+            <p>Building AI + analytics systems for real-world impact • Open to Summer 2026 internships • Shipping weekly improvements to this portfolio</p>
         </div>
     </section>
 
-    <section id="experience">
-        <h2>Experience</h2>
-        <ul>
-            <li>Data Analyst @ Queen’s Sports Analytics Organization</li>
-            <li>Full-Stack Developer @ Queen’s University Web Development</li>
-            <li>External Operations Team Member @ Queen’s AutoDrive</li>
-            <li> Karate Instructor @ Northern Karate Schools</li>
-        </ul>
-    </section>
-
-    <section id="Published Articles">
-        <h2>Published Articles</h2>
-        <div class="project">
-            <h3>Queen's Sports Analytics Organization (QSAO)</h3>
-            <p>The Managerial Bounce at Manchester United: The History and What to Expect with Ruben Amorim</p>
-            <a href="https://www.qsao-queens.com/content/2025/2/6/the-managerial-bounce-at-manchester-united-the-history-and-what-to-expect-with-ruben-amorim" target="_blank">Read my Article</a>
+    <section class="results-strip" aria-label="Featured results">
+        <div class="container results-strip-grid">
+            <article class="result-chip reveal">
+                <span class="result-chip-label">Transit Analytics</span>
+                <strong>50K+ Ops records analyzed</strong>
+            </article>
+            <article class="result-chip reveal">
+                <span class="result-chip-label">Workflow Automation</span>
+                <strong>30% manual effort reduction</strong>
+            </article>
+            <article class="result-chip reveal">
+                <span class="result-chip-label">Sports Intelligence</span>
+                <strong>1,000+ metrics translated to decisions</strong>
+            </article>
         </div>
     </section>
 
-    <section id="contact">
-        <h2>Contact Me</h2>
-        <p>Email: <a href="mailto:arvin.askari@queensu.ca">arvin.askari@queensu.ca</a></p>
-        <p>GitHub: <a href="https://github.com/Arvincoder15" target="_blank">github.com/Arvincoder15</a></p>
-        <p>LinkedIn: <a href="https://linkedin.com/in/arvin-askari" target="_blank">linkedin.com/in/arvin-askari</a></p>
-        <form action="https://formspree.io/f/meoevjlz" method="POST">
-            <input type="text" name="name" placeholder="Your Name" required>
-            <input type="email" name="email" placeholder="Your Email" required>
-            <textarea name="message" placeholder="Your Message" required></textarea>
-            <button type="submit" class="btn">Send</button>
-        </form>
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title reveal">About Me</h2>
+            <div class="about-grid">
+                <article class="about-card reveal">
+                    <p class="section-intro">I’m Arvin — a builder focused on applied AI, analytics, and modern software products. I care about turning complex datasets into practical systems people can actually use.</p>
+                    <p class="section-intro">Template you can personalize: I enjoy working on projects where <strong>technical depth</strong> meets <strong>real-world impact</strong>, especially in healthcare, mobility, and sports intelligence.</p>
+                    <div class="about-pill-row">
+                        <span class="about-pill">Queen’s Computing (Honours)</span>
+                        <span class="about-pill">Certificate in Business</span>
+                        <span class="about-pill">AI + Data + Full-Stack</span>
+                    </div>
+                </article>
+                <aside class="about-side reveal">
+                    <h3>My Edge</h3>
+                    <ul class="about-list">
+                        <li>Strong technical execution with clear communication.</li>
+                        <li>Comfortable moving from analysis to product delivery.</li>
+                        <li>Experience across internships, research teams, and competitions.</li>
+                    </ul>
+                    <div class="about-tagline">“Build useful things. Ship fast. Keep improving.”</div>
+                </aside>
+            </div>
+        </div>
     </section>
 
-    <script>
-        const form = document.getElementById("contact-form");
-        const formStatus = document.getElementById("form-status");
-    
-        form.addEventListener("submit", async (event) => {
-            event.preventDefault();
-            let formData = new FormData(form);
-    
-            try {
-                let response = await fetch(form.action, {
-                    method: "POST",
-                    body: formData,
-                    headers: { "Accept": "application/json" },
-                });
-    
-                if (response.ok) {
-                    formStatus.textContent = "Message sent successfully!";
-                    form.reset();
-                } else {
-                    formStatus.textContent = "Oops! Something went wrong.";
-                }
-            } catch (error) {
-                formStatus.textContent = "There was a problem submitting your form.";
-            }
-        });
-    </script>
+    <section id="experience" class="section section-alt">
+        <div class="container">
+            <h2 class="section-title reveal">Experience</h2>
+            <div class="experience-filters reveal" role="tablist" aria-label="Filter experience by category">
+                <button type="button" class="exp-filter-btn active" data-filter="all" aria-pressed="true">All</button>
+                <button type="button" class="exp-filter-btn" data-filter="ai" aria-pressed="false">AI</button>
+                <button type="button" class="exp-filter-btn" data-filter="data" aria-pressed="false">Data</button>
+                <button type="button" class="exp-filter-btn" data-filter="systems" aria-pressed="false">Systems</button>
+                <button type="button" class="exp-filter-btn" data-filter="web" aria-pressed="false">Web</button>
+            </div>
+            <div class="experience-grid">
+                <article class="experience-card reveal" data-exp-category="data">
+                    <div class="experience-logo"><img src="images/metrolinx.svg" alt="Metrolinx"></div>
+                    <div class="card-header">
+                        <h3>Service & Operational Planning Intern</h3>
+                        <span class="date-badge">May 2025 – Aug 2025</span>
+                    </div>
+                    <p class="company">Metrolinx • Toronto, ON</p>
+                    <ul class="highlights-list">
+                        <li>Analyzed 50,000+ operational records for service planning decisions.</li>
+                        <li>Automated Excel and Power BI workflows, reducing manual time by 30%.</li>
+                        <li>Partnered with cross-functional teams to validate KPIs and recommendations.</li>
+                    </ul>
+                </article>
 
-    <footer>
-        <p>© 2025 Arvin Askari. All rights reserved.</p>
+                <article class="experience-card reveal" data-exp-category="ai data">
+                    <div class="experience-logo"><img src="images/qmind.png" alt="QMIND"></div>
+                    <div class="card-header">
+                        <h3>AI & ML Developer</h3>
+                        <span class="date-badge">Sept 2025 – Present</span>
+                    </div>
+                    <p class="company">QMIND • Kingston, ON</p>
+                    <ul class="highlights-list">
+                        <li>Building RAG workflows for postoperative healthcare instructions.</li>
+                        <li>Transforming 100+ pages of clinical literature with LLM/NLP pipelines.</li>
+                        <li>Creating secure upload/update automation for clinical teams.</li>
+                    </ul>
+                </article>
+
+                <article class="experience-card reveal" data-exp-category="data">
+                    <div class="experience-logo"><img src="images/qsao.png" alt="QSAO"></div>
+                    <div class="card-header">
+                        <h3>Data Analyst</h3>
+                        <span class="date-badge">Sept 2024 – Present</span>
+                    </div>
+                    <p class="company">QSAO • Kingston, ON</p>
+                    <ul class="highlights-list">
+                        <li>Analyzed 1,000+ performance metrics to deliver actionable insights.</li>
+                        <li>Built 10+ visual reports to support sports decision-making.</li>
+                        <li>Improved reliability via robust validation and cleaning pipelines.</li>
+                    </ul>
+                </article>
+
+                <article class="experience-card reveal" data-exp-category="systems ai">
+                    <div class="experience-logo"><img src="images/autodrive.png" alt="AutoDrive"></div>
+                    <div class="card-header">
+                        <h3>LiDAR 3D Detection & Tracking</h3>
+                        <span class="date-badge">Sept 2025 – Present</span>
+                    </div>
+                    <p class="company">Queen’s AutoDrive • Kingston, ON</p>
+                    <ul class="highlights-list">
+                        <li>Integrating LiDAR/radar/sensor streams in Python and ROS 2.</li>
+                        <li>Developing sensor fusion for stronger perception accuracy.</li>
+                        <li>Collaborating with Controls and Planning for reliable autonomy.</li>
+                    </ul>
+                </article>
+
+                <article class="experience-card reveal" data-exp-category="web">
+                    <div class="experience-logo"><img src="images/qweb.jpeg" alt="QWeb"></div>
+                    <div class="card-header">
+                        <h3>Full-Stack Developer</h3>
+                        <span class="date-badge">Jan 2025 – April 2025</span>
+                    </div>
+                    <p class="company">QWeb • Kingston, ON</p>
+                    <ul class="highlights-list">
+                        <li>Built a responsive client site with HTML, CSS, JavaScript, and React.</li>
+                        <li>Streamlined backend workflows to deliver ~20% faster.</li>
+                        <li>Translated client goals into requirements, cutting approvals by 30%.</li>
+                    </ul>
+                </article>
+
+                <article class="experience-card reveal" data-exp-category="data">
+                    <div class="experience-logo"><img src="images/quantt.png" alt="QUANTT"></div>
+                    <div class="card-header">
+                        <h3>Logistics Coordinator</h3>
+                        <span class="date-badge">Sept 2025 – Present</span>
+                    </div>
+                    <p class="company">QUANTT • Kingston, ON</p>
+                    <ul class="highlights-list">
+                        <li>Coordinated 3+ events/semester across 4+ portfolios (50+ attendees).</li>
+                        <li>Improved cross-team scheduling, reducing conflicts by 30%.</li>
+                        <li>Introduced tracking systems to boost productivity by 20%.</li>
+                    </ul>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="section">
+        <div class="container">
+            <h2 class="section-title reveal">Personal Projects</h2>
+            <p class="section-intro reveal">Featured work is pinned first. Status badges update the current stage of each project.</p>
+            <div class="projects-tools reveal">
+                <input id="projectSearch" class="project-search" type="text" placeholder="Search projects by name or keyword..." aria-label="Search projects">
+                <button id="clearProjectSearch" type="button" class="btn btn-outline btn-small">Clear</button>
+            </div>
+            <div class="projects-grid">
+                <article class="project-card featured reveal">
+                    <div class="project-media" aria-hidden="true">
+                        <img src="images/project-placeholder.svg" alt="QSAO Arizona DiamondBacks model preview placeholder" loading="lazy" decoding="async">
+                    </div>
+                    <div class="project-content">
+                        <div class="project-top-row">
+                            <span class="featured-badge">Featured Project</span>
+                            <span class="status-badge in-progress">In Progress</span>
+                        </div>
+                        <h3>QSAO—Arizona DiamondBacks Model</h3>
+                        <p>ML + Statcast driven roster optimization for 2026 QSAO Case Competition.</p>
+                        <a href="https://github.com/Arvincoder15/QSAO---Arizona-DiamondBacks-Model" target="_blank" rel="noopener noreferrer" class="project-link" data-project="QSAO—Arizona DiamondBacks Model">View project</a>
+                    </div>
+                </article>
+                <article class="project-card featured reveal">
+                    <div class="project-media" aria-hidden="true">
+                        <img src="images/project-placeholder.svg" alt="Manchester United possession analysis preview placeholder" loading="lazy" decoding="async">
+                    </div>
+                    <div class="project-content">
+                        <div class="project-top-row">
+                            <span class="featured-badge">Featured Project</span>
+                            <span class="status-badge production">Production</span>
+                        </div>
+                        <h3>manutd-possession-analysis</h3>
+                        <p>Data-driven possession vs performance analysis (2019–2026) with visualizations.</p>
+                        <a href="https://github.com/Arvincoder15/manutd-possession-analysis" target="_blank" rel="noopener noreferrer" class="project-link" data-project="manutd-possession-analysis">View project</a>
+                    </div>
+                </article>
+                <article class="project-card reveal">
+                    <div class="project-media" aria-hidden="true">
+                        <img src="images/project-placeholder.svg" alt="RAGProductionApp preview placeholder" loading="lazy" decoding="async">
+                    </div>
+                    <div class="project-content">
+                        <div class="project-top-row">
+                            <span class="status-badge in-progress">In Progress</span>
+                        </div>
+                        <h3>RAGProductionApp</h3>
+                        <p>PDF reader with Retrieval-Augmented Generation for document Q&A.</p>
+                        <a href="https://github.com/Arvincoder15/RAGProductionApp" target="_blank" rel="noopener noreferrer" class="project-link" data-project="RAGProductionApp">View project</a>
+                    </div>
+                </article>
+                <article class="project-card reveal">
+                    <div class="project-media" aria-hidden="true">
+                        <img src="images/project-placeholder.svg" alt="CineMatch preview placeholder" loading="lazy" decoding="async">
+                    </div>
+                    <div class="project-content">
+                        <div class="project-top-row">
+                            <span class="status-badge production">Production</span>
+                        </div>
+                        <h3>CineMatch</h3>
+                        <p>AI-powered movie recommendation and discovery app with dynamic UI.</p>
+                        <a href="https://github.com/Arvincoder15/CineMatch" target="_blank" rel="noopener noreferrer" class="project-link" data-project="CineMatch">View project</a>
+                    </div>
+                </article>
+                <article class="project-card reveal">
+                    <div class="project-media" aria-hidden="true">
+                        <img src="images/project-placeholder.svg" alt="QHacks backend preview placeholder" loading="lazy" decoding="async">
+                    </div>
+                    <div class="project-content">
+                        <div class="project-top-row">
+                            <span class="status-badge production">Production</span>
+                        </div>
+                        <h3>QHacks-Backend</h3>
+                        <p>Lease Me Before You Go Go — hackathon backend for NLP dispute simulation.</p>
+                        <a href="https://github.com/Arvincoder15/QHacks-Backend" target="_blank" rel="noopener noreferrer" class="project-link" data-project="QHacks-Backend">View project</a>
+                    </div>
+                </article>
+                <article class="project-card reveal">
+                    <div class="project-media" aria-hidden="true">
+                        <img src="images/project-placeholder.svg" alt="Police Dodger game preview placeholder" loading="lazy" decoding="async">
+                    </div>
+                    <div class="project-content">
+                        <div class="project-top-row">
+                            <span class="status-badge production">Production</span>
+                        </div>
+                        <h3>Police-Dodger-Game</h3>
+                        <p>Python arcade game built with Pygame and Tkinter timer mechanics.</p>
+                        <a href="https://github.com/Arvincoder15/Police-Dodger-Game" target="_blank" rel="noopener noreferrer" class="project-link" data-project="Police-Dodger-Game">View project</a>
+                    </div>
+                </article>
+            </div>
+            <p id="projectsEmptyState" class="projects-empty" hidden>No projects match that search yet.</p>
+        </div>
+    </section>
+
+    <section id="competitions" class="section section-alt">
+        <div class="container">
+            <h2 class="section-title reveal">Hackathons & Competitions</h2>
+            <p class="section-intro reveal">Fast-paced builds and case competitions focused on execution, insight, and impact.</p>
+            <div class="hack-grid">
+                <article class="hack-card reveal">
+                    <div class="hack-media" aria-hidden="true">
+                        <img src="images/project-placeholder.svg" alt="QSAO Arizona Diamondbacks case preview placeholder" loading="lazy" decoding="async">
+                    </div>
+                    <div class="hack-header">
+                        <div>
+                            <h3>Arizona Diamondbacks</h3>
+                            <p class="hack-meta">QSAO Case Competition</p>
+                        </div>
+                        <span class="date-badge">Jan 2026</span>
+                    </div>
+                    <div class="hack-body">
+                        <p class="hack-highlight">WAR projections and Statcast pipelines for roster, trade, and contract strategy.</p>
+                        <div class="hack-tags">
+                            <span>Sports Analytics</span>
+                            <span>Machine Learning</span>
+                            <span>Python</span>
+                            <span>Pandas</span>
+                            <span>Matplotlib</span>
+                        </div>
+                        <div class="link-row">
+                            <button type="button" class="link-pill doc-link" data-doc="QSAO Case Comp - Arizona Diamondbacks.pdf" data-title="QSAO Case Comp — Arizona Diamondbacks">Open Case PDF</button>
+                            <a href="https://github.com/Arvincoder15/QSAO---Arizona-DiamondBacks-Model" target="_blank" rel="noopener noreferrer" class="link-pill">View Repo</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="hack-card reveal">
+                    <div class="hack-media" aria-hidden="true">
+                        <img src="images/project-placeholder.svg" alt="VoiceCare AI preview placeholder" loading="lazy" decoding="async">
+                    </div>
+                    <div class="hack-header">
+                        <div>
+                            <h3>VoiceCare AI</h3>
+                            <p class="hack-meta">QHacks</p>
+                        </div>
+                        <span class="date-badge">Feb 2026</span>
+                    </div>
+                    <div class="hack-body">
+                        <p class="hack-highlight">Voice-first extension that guides users through the web with AI assistance.</p>
+                         <div class="hack-tags">
+                            <span>Chrome Extension</span>
+                            <span>Gemini API</span>
+                            <span>Accessibility</span>
+                            <span>JavaScript</span>
+                        </div>
+                        <div class="link-row">
+                            <a href="https://github.com/NigelGroen5/voicecare-AI" target="_blank" rel="noopener noreferrer" class="link-pill">View Repo</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="hack-card reveal">
+                    <div class="hack-media" aria-hidden="true">
+                        <img src="images/project-placeholder.svg" alt="QSAO case competition preview placeholder" loading="lazy" decoding="async">
+                    </div>
+                    <div class="hack-header">
+                        <div>
+                            <h3>Miami Heat</h3>
+                            <p class="hack-meta">QSAO Case Competition</p>
+                        </div>
+                        <span class="date-badge">Mar 2025</span>
+                    </div>
+                    <div class="hack-body">
+                        <p class="hack-highlight">2nd place Miami Heat analytics pitch focused on performance strategy and roster fit.</p>
+                        <div class="hack-tags">
+                            <span>Data Analysis</span>
+                            <span>Pandas</span>
+                            <span>Sports Analytics</span>
+                            <span>Python</span>
+                        </div>
+                        <div class="link-row">
+                            <button type="button" class="link-pill doc-link" data-doc="QSAO Case Competition.pdf" data-title="QSAO Case Competition">Open Case PDF</button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="hack-card reveal">
+                    <div class="hack-media" aria-hidden="true">
+                        <img src="images/project-placeholder.svg" alt="Landlord negotiation simulator preview placeholder" loading="lazy" decoding="async">
+                    </div>
+                    <div class="hack-header">
+                        <div>
+                            <h3>Landlord Negotiation Simulator</h3>
+                            <p class="hack-meta">QHacks</p>
+                        </div>
+                        <span class="date-badge">Jan 2025</span>
+                    </div>
+                    <div class="hack-body">
+                        <p class="hack-highlight">Interactive AI-powered negotiation practice for first-time renters.</p>
+                        <div class="hack-tags">
+                            <span>React</span>
+                            <span>Next.js</span>
+                            <span>Flask</span>
+                            <span>Gemini API</span>
+                            <span>Tailwind CSS</span>
+                        </div>
+                        <div class="link-row">
+                            <a href="https://github.com/Elrich-Chen/QHacks_2025" target="_blank" rel="noopener noreferrer" class="link-pill">View Repo</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section id="writing" class="section">
+        <div class="container">
+            <h2 class="section-title reveal">Writing & Articles</h2>
+            <p class="section-intro reveal">Sports analytics analysis and editorial work.</p>
+
+            <article class="article-card reveal">
+                <div class="article-media">
+                    <img src="images/upset.png" alt="Manchester United analytics article cover" loading="lazy" decoding="async">
+                </div>
+                <div class="article-body">
+                    <div class="article-header">
+                        <div>
+                            <h3>Is Manchester United Better Without the Ball? - Sports Analytics Article with Python</h3>
+                            <p class="article-meta">November 19, 2025 • QSAO</p>
+                        </div>
+                        <span class="date-badge">Nov 2025</span>
+                    </div>
+                    <p class="article-summary">United have spent years trying to dominate possession. The numbers say they shouldn’t.</p>
+                    <div class="link-row">
+                        <button type="button" class="link-pill doc-link" data-doc="Arvin Askari - QSAO Article.pdf" data-title="QSAO Sports Analytics Article">Read Article</button>
+                        <a href="https://github.com/Arvincoder15/manutd-possession-analysis" target="_blank" rel="noopener noreferrer" class="link-pill">View Repo</a>
+                    </div>
+                    <div class="article-tags">
+                        <span>Python</span>
+                        <span>Data Analysis</span>
+                        <span>Pandas</span>
+                        <span>Matplotlib</span>
+                        <span>NumPy</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="article-card reveal">
+                <div class="article-media">
+                    <img src="images/ruben.png" alt="Ruben Amorim managerial bounce article cover" loading="lazy" decoding="async">
+                </div>
+                <div class="article-body">
+                    <div class="article-header">
+                        <div>
+                            <h3>The Managerial Bounce at Manchester United: The History and What to Expect with Amorim</h3>
+                            <p class="article-meta">February 16, 2025 • QSAO</p>
+                        </div>
+                        <span class="date-badge">Feb 2025</span>
+                    </div>
+                    <p class="article-summary">A data-backed look at managerial bounce patterns at Man United, with expectations for Ruben Amorim’s tenure.</p>
+                    <div class="link-row">
+                        <button type="button" class="link-pill doc-link" data-doc="https://www.qsao-queens.com/content/2025/2/6/the-managerial-bounce-at-manchester-united-the-history-and-what-to-expect-with-ruben-amorim" data-title="The Managerial Bounce at Manchester United">Read Article</button>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <section id="skills" class="section section-alt">
+        <div class="container">
+            <h2 class="section-title reveal">Technical Skills</h2>
+            <div class="skills-grid modern">
+                <article class="skill-category reveal">
+                    <div class="skill-head">
+                        <h3>Programming & Web</h3>
+                        <span>Core Build</span>
+                    </div>
+                    <div class="skill-meter">
+                        <label>Python</label>
+                        <div class="skill-meter-track"><span class="skill-meter-fill" style="--level: 94%"></span></div>
+                    </div>
+                    <div class="skill-meter">
+                        <label>JavaScript / TypeScript</label>
+                        <div class="skill-meter-track"><span class="skill-meter-fill" style="--level: 88%"></span></div>
+                    </div>
+                    <div class="skill-meter">
+                        <label>React / Next.js</label>
+                        <div class="skill-meter-track"><span class="skill-meter-fill" style="--level: 84%"></span></div>
+                    </div>
+                    <div class="skill-tags">
+                        <span>Flask</span><span>SQL</span><span>APIs</span><span>HTML/CSS</span>
+                    </div>
+                </article>
+
+                <article class="skill-category reveal">
+                    <div class="skill-head">
+                        <h3>AI & Data</h3>
+                        <span>Applied AI</span>
+                    </div>
+                    <div class="skill-meter">
+                        <label>NLP / LLM Pipelines</label>
+                        <div class="skill-meter-track"><span class="skill-meter-fill" style="--level: 90%"></span></div>
+                    </div>
+                    <div class="skill-meter">
+                        <label>Power BI</label>
+                        <div class="skill-meter-track"><span class="skill-meter-fill" style="--level: 85%"></span></div>
+                    </div>
+                    <div class="skill-meter">
+                        <label>Data Analysis & Visualization</label>
+                        <div class="skill-meter-track"><span class="skill-meter-fill" style="--level: 92%"></span></div>
+                    </div>
+                    <div class="skill-tags">
+                        <span>Pandas</span><span>NumPy</span><span>Matplotlib</span><span>RAG</span>
+                    </div>
+                </article>
+
+                <article class="skill-category reveal">
+                    <div class="skill-head">
+                        <h3>Tools & Delivery</h3>
+                        <span>Execution</span>
+                    </div>
+                    <div class="skill-meter">
+                        <label>GitHub & Collaboration</label>
+                        <div class="skill-meter-track"><span class="skill-meter-fill" style="--level: 90%"></span></div>
+                    </div>
+                    <div class="skill-meter">
+                        <label>Automation & Productivity</label>
+                        <div class="skill-meter-track"><span class="skill-meter-fill" style="--level: 86%"></span></div>
+                    </div>
+                    <div class="skill-meter">
+                        <label>Excel</label>
+                        <div class="skill-meter-track"><span class="skill-meter-fill" style="--level: 74%"></span></div>
+                    </div>
+                    <div class="skill-tags">
+                        <span>VS Code</span><span>Power Automate</span><span>Microsoft Office</span>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title reveal">Contact</h2>
+            <div class="contact-grid">
+                <div class="contact-info reveal">
+                    <h3>Let’s Build Something Meaningful</h3>
+                    <p>I respond quickly to coffee chats, project collaborations, internship opportunities, and technical discussions.</p>
+                    <ul class="contact-points">
+                        <li><i class="fas fa-envelope-square"></i><span>arvin.askari@queensu.ca</span></li>
+                        <li><i class="fas fa-briefcase"></i><span>Open to internships and impact-driven work</span></li>
+                        <li><i class="fas fa-code"></i><span>Email me directly or use the form!</span></li>
+                    </ul>
+                    <div class="contact-actions">
+                        <button type="button" id="copyEmailBtn" class="btn btn-secondary">Copy Email</button>
+                        <button type="button" id="openResumeBtnContact" class="btn btn-outline">View Resume</button>
+                    </div>
+                </div>
+                <form class="contact-form reveal" id="contactForm" action="https://formspree.io/f/meoevjlz" method="POST" novalidate>
+                    <div class="visually-hidden" aria-hidden="true">
+                        <label for="company">Company</label>
+                        <input id="company" type="text" name="company" tabindex="-1" autocomplete="off">
+                    </div>
+                    <input type="text" name="name" placeholder="Your Name" required class="form-input" autocomplete="name" maxlength="80">
+                    <input type="email" name="email" placeholder="Your Email" required class="form-input" autocomplete="email" maxlength="120">
+                    <textarea name="message" placeholder="Your Message" required class="form-textarea" minlength="10" maxlength="2000"></textarea>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                    <p id="contactStatus" class="form-status" role="status" aria-live="polite"></p>
+                </form>
+            </div>
+        </div>
+    </section>
+    </main>
+
+    <div id="resumeModal" class="resume-modal" aria-hidden="true">
+        <div class="resume-modal-content" role="dialog" aria-modal="true" aria-labelledby="resumeModalTitle">
+            <div class="resume-modal-header">
+                <h3 id="resumeModalTitle">ArvinAskari_Resume.pdf</h3>
+                <div class="resume-modal-actions">
+                    <a href="ArvinAskari_Resume.pdf" target="_blank" class="btn btn-secondary">Open in New Tab</a>
+                    <button type="button" id="closeResumeBtn" class="resume-close" aria-label="Close resume viewer">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            <iframe src="ArvinAskari_Resume.pdf" title="Resume Viewer" class="resume-frame"></iframe>
+        </div>
+    </div>
+
+    <div id="docModal" class="resume-modal" aria-hidden="true">
+        <div class="resume-modal-content" role="dialog" aria-modal="true" aria-labelledby="docModalTitle">
+            <div class="resume-modal-header">
+                <h3 id="docModalTitle">Document Viewer</h3>
+                <div class="resume-modal-actions">
+                    <a href="#" id="docModalOpen" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Open in New Tab</a>
+                    <button type="button" id="closeDocBtn" class="resume-close" aria-label="Close document viewer">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            <iframe src="" title="Document Viewer" class="resume-frame" id="docFrame"></iframe>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container footer-inner">
+            <p>© 2026 Arvin Askari</p>
+            <div class="footer-links">
+                <a href="https://github.com/Arvincoder15" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/arvin-askari" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:arvin.askari@queensu.ca"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
     </footer>
+
     <script src="script.js"></script>
 </body>
 </html>
