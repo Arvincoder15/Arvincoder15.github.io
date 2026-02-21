@@ -19,6 +19,11 @@ const docFrame = document.getElementById('docFrame');
 const docModalTitle = document.getElementById('docModalTitle');
 const docModalOpen = document.getElementById('docModalOpen');
 const closeDocBtn = document.getElementById('closeDocBtn');
+const aboutGalleryItems = Array.from(document.querySelectorAll('.about-gallery-item'));
+const aboutGalleryPrev = document.getElementById('aboutGalleryPrev');
+const aboutGalleryNext = document.getElementById('aboutGalleryNext');
+const aboutGalleryDots = document.querySelector('.about-gallery-dots');
+let activeFilter = 'all';
 
 function trackProjectClick(projectName, href) {
     if (window.plausible) {
@@ -119,6 +124,39 @@ document.querySelectorAll('.doc-link').forEach(link => {
     });
 });
 
+if (aboutGalleryItems.length && aboutGalleryPrev && aboutGalleryNext && aboutGalleryDots) {
+    let galleryIndex = aboutGalleryItems.findIndex(item => item.classList.contains('is-active'));
+    if (galleryIndex < 0) galleryIndex = 0;
+
+    const dots = aboutGalleryItems.map((_, index) => {
+        const dot = document.createElement('button');
+        dot.type = 'button';
+        dot.className = 'about-gallery-dot';
+        dot.setAttribute('aria-label', `Show photo ${index + 1}`);
+        dot.addEventListener('click', () => setGalleryIndex(index));
+        aboutGalleryDots.appendChild(dot);
+        return dot;
+    });
+
+    const setGalleryIndex = nextIndex => {
+        aboutGalleryItems[galleryIndex]?.classList.remove('is-active');
+        dots[galleryIndex]?.classList.remove('is-active');
+        galleryIndex = (nextIndex + aboutGalleryItems.length) % aboutGalleryItems.length;
+        aboutGalleryItems[galleryIndex].classList.add('is-active');
+        dots[galleryIndex]?.classList.add('is-active');
+    };
+
+    aboutGalleryPrev.addEventListener('click', () => {
+        setGalleryIndex(galleryIndex - 1);
+    });
+
+    aboutGalleryNext.addEventListener('click', () => {
+        setGalleryIndex(galleryIndex + 1);
+    });
+
+    setGalleryIndex(galleryIndex);
+}
+
 if (closeDocBtn && docModal) {
     closeDocBtn.addEventListener('click', () => {
         docModal.classList.remove('open');
@@ -187,7 +225,9 @@ const revealObserver = new IntersectionObserver(entries => {
     });
 }, { threshold: 0.12 });
 
-document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+document.querySelectorAll('.reveal').forEach(el => {
+    revealObserver.observe(el);
+});
 
 document.querySelectorAll('.reveal').forEach((el, index) => {
     el.style.transitionDelay = `${Math.min(index * 0.03, 0.24)}s`;
@@ -207,6 +247,13 @@ scrollTopBtn.addEventListener('click', () => {
 document.querySelectorAll('.project-link').forEach(link => {
     link.addEventListener('click', () => {
         const project = link.dataset.project || link.closest('.project-card')?.querySelector('h3')?.textContent?.trim() || 'unknown';
+        trackProjectClick(project, link.href);
+    });
+});
+
+document.querySelectorAll('.project-media-link').forEach(link => {
+    link.addEventListener('click', () => {
+        const project = link.dataset.project || 'unknown';
         trackProjectClick(project, link.href);
     });
 });
@@ -240,7 +287,10 @@ if (projectSearch) {
 
         cards.forEach(card => {
             const text = card.textContent.toLowerCase();
-            const show = text.includes(query);
+            const techs = (card.dataset.tech || '').split(/\s+/).filter(Boolean);
+            const matchesSearch = text.includes(query);
+            const matchesTech = activeFilter === 'all' || techs.includes(activeFilter.toLowerCase());
+            const show = matchesSearch && matchesTech;
             card.style.display = show ? '' : 'none';
             if (show) visibleCount += 1;
         });
@@ -255,6 +305,29 @@ if (projectSearch) {
         projectSearch.value = '';
         runProjectFilter();
         projectSearch.focus();
+    });
+}
+
+// Technology filter for projects
+const filterButtons = document.querySelectorAll('.filter-btn');
+const projectCards = Array.from(document.querySelectorAll('.project-card'));
+
+if (filterButtons.length > 0) {
+    filterButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Update active button
+            filterButtons.forEach(b => b.classList.remove('filter-active'));
+            btn.classList.add('filter-active');
+            activeFilter = btn.dataset.tech || 'all';
+
+            // Filter cards
+            projectCards.forEach(card => {
+                const techs = (card.dataset.tech || '').split(/\s+/).filter(Boolean);
+                const matchesFilter = activeFilter === 'all' || techs.includes(activeFilter.toLowerCase());
+                const matchesSearch = projectSearch ? card.textContent.toLowerCase().includes(projectSearch.value.toLowerCase()) : true;
+                card.style.display = (matchesFilter && matchesSearch) ? '' : 'none';
+            });
+        });
     });
 }
 
@@ -285,9 +358,17 @@ window.addEventListener('scroll', () => {
     }
 
     let activeId = '';
-    document.querySelectorAll('section[id], header[id]').forEach(section => {
-        const top = section.offsetTop - 120;
-        if (scrollTop >= top) activeId = section.id;
+    const sections = document.querySelectorAll('#hero, #about, #experience, #projects, #competitions, #writing, #skills, #contact');
+    const viewportCenter = window.innerHeight / 2;
+    
+    sections.forEach(section => {
+        const { top, height } = section.getBoundingClientRect();
+        const sectionCenter = top + height / 2;
+        const distanceFromCenter = Math.abs(sectionCenter - viewportCenter);
+        
+        if (!activeId || distanceFromCenter < Math.abs(document.querySelector(`#${activeId}`)?.getBoundingClientRect().top + document.querySelector(`#${activeId}`)?.getBoundingClientRect().height / 2 - viewportCenter)) {
+            activeId = section.id;
+        }
     });
 
     document.querySelectorAll('.nav-link').forEach(link => {
@@ -385,6 +466,10 @@ if (contactForm) {
         setTimeout(() => {
             button.disabled = false;
             button.textContent = original;
-        }, 1600);
+            // Keep success message visible for longer
+            if (!statusEl.classList.contains('success')) {
+                setStatus('');
+            }
+        }, 2400);
     });
 }
