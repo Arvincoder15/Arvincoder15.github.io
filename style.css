@@ -841,6 +841,31 @@ textarea:focus-visible {
     word-wrap: break-word;
 }
 
+.experience-card--new {
+    border-left-color: #b21f24;
+    background:
+        radial-gradient(110% 90% at 100% 0%, color-mix(in srgb, #b21f24 20%, transparent) 0%, transparent 62%),
+        linear-gradient(135deg, var(--surface) 0%, color-mix(in srgb, var(--surface) 95%, var(--text)) 100%);
+}
+
+.role-chip {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 0.64rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 800;
+    color: #fff;
+    background: linear-gradient(135deg, #b21f24, #7d1418);
+    box-shadow: 0 6px 14px rgba(125, 20, 24, 0.35);
+}
+
 .experience-logo {
     width: 64px;
     height: 64px;
@@ -884,12 +909,21 @@ textarea:focus-visible {
     object-fit: contain;
 }
 
+.experience-logo-text {
+    font-size: 1rem;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    color: #b21f24;
+    font-family: "Segoe UI", "Avenir Next", sans-serif;
+}
+
 .card-header {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
-    gap: 24px;
+    gap: 12px;
     align-items: flex-start;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
 }
 
 .card-header h3 {
@@ -902,6 +936,8 @@ textarea:focus-visible {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    flex: 1 1 240px;
+    min-width: 0;
     word-wrap: break-word;
     overflow-wrap: break-word;
 }
@@ -919,6 +955,7 @@ textarea:focus-visible {
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     text-transform: uppercase;
     flex-shrink: 0;
+    margin-top: 2px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
