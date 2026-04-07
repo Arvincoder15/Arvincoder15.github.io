@@ -793,6 +793,16 @@ textarea:focus-visible {
     margin-bottom: 14px;
 }
 
+.experience-see-more-wrap {
+    display: flex;
+    justify-content: center;
+    margin-top: 18px;
+}
+
+#experienceSeeMoreBtn[hidden] {
+    display: none;
+}
+
 .exp-filter-btn {
     border: 1px solid var(--line);
     border-radius: 999px;
@@ -1011,6 +1021,16 @@ textarea:focus-visible {
     display: flex;
     gap: 10px;
     margin-bottom: 16px;
+}
+
+.projects-see-more-wrap {
+    display: flex;
+    justify-content: center;
+    margin-top: 18px;
+}
+
+#projectsSeeMoreBtn[hidden] {
+    display: none;
 }
 
 .project-search {

@@ -11,9 +11,13 @@ const getInTouchBtn = document.getElementById('getInTouchBtn');
 const projectSearch = document.getElementById('projectSearch');
 const clearProjectSearch = document.getElementById('clearProjectSearch');
 const projectsEmptyState = document.getElementById('projectsEmptyState');
+const projectsGrid = document.querySelector('.projects-grid');
+const projectsSeeMoreBtn = document.getElementById('projectsSeeMoreBtn');
 const copyEmailBtn = document.getElementById('copyEmailBtn');
 const experienceFilterButtons = document.querySelectorAll('.exp-filter-btn');
 const experienceCards = Array.from(document.querySelectorAll('.experience-card'));
+const experienceGrid = document.querySelector('.experience-grid');
+const experienceSeeMoreBtn = document.getElementById('experienceSeeMoreBtn');
 const docModal = document.getElementById('docModal');
 const docFrame = document.getElementById('docFrame');
 const docModalTitle = document.getElementById('docModalTitle');
@@ -24,6 +28,9 @@ const aboutGalleryPrev = document.getElementById('aboutGalleryPrev');
 const aboutGalleryNext = document.getElementById('aboutGalleryNext');
 const aboutGalleryDots = document.querySelector('.about-gallery-dots');
 let activeFilter = 'all';
+let activeExperienceFilter = 'all';
+let isExperienceExpanded = false;
+let isProjectsExpanded = false;
 
 function trackProjectClick(projectName, href) {
     if (window.plausible) {
@@ -259,9 +266,53 @@ document.querySelectorAll('.project-media-link').forEach(link => {
 });
 
 if (experienceFilterButtons.length && experienceCards.length) {
+    const getExperienceRowSize = () => {
+        if (!experienceGrid) return 3;
+        const template = window.getComputedStyle(experienceGrid).gridTemplateColumns;
+        const columnCount = template.split(' ').filter(Boolean).length;
+        return Math.max(1, columnCount || 1);
+    };
+
+    const renderExperience = (filter = 'all') => {
+        activeExperienceFilter = filter;
+        const visibleCards = [];
+
+        experienceCards.forEach(card => {
+            const categories = (card.dataset.expCategory || '').split(/\s+/).filter(Boolean);
+            const shouldShow = filter === 'all' || categories.includes(filter);
+            if (shouldShow) {
+                visibleCards.push(card);
+                card.style.display = '';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+
+        const rowSize = getExperienceRowSize();
+        const shouldCollapse = filter === 'all' && !isExperienceExpanded;
+
+        if (shouldCollapse) {
+            visibleCards.forEach((card, index) => {
+                if (index >= rowSize) {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        if (experienceSeeMoreBtn) {
+            const hasMoreThanOneRow = visibleCards.length > rowSize;
+            const shouldShowButton = filter === 'all' && hasMoreThanOneRow;
+            experienceSeeMoreBtn.hidden = !shouldShowButton;
+            experienceSeeMoreBtn.textContent = isExperienceExpanded ? 'See Less Experience' : 'See More Experience';
+            experienceSeeMoreBtn.setAttribute('aria-expanded', String(isExperienceExpanded));
+        }
+    };
+
     experienceFilterButtons.forEach(button => {
         button.addEventListener('click', () => {
             const filter = button.dataset.filter || 'all';
+
+            isExperienceExpanded = false;
 
             experienceFilterButtons.forEach(btn => {
                 const isActive = btn === button;
@@ -269,66 +320,103 @@ if (experienceFilterButtons.length && experienceCards.length) {
                 btn.setAttribute('aria-pressed', String(isActive));
             });
 
-            experienceCards.forEach(card => {
-                const categories = (card.dataset.expCategory || '').split(/\s+/).filter(Boolean);
-                const shouldShow = filter === 'all' || categories.includes(filter);
-                card.style.display = shouldShow ? '' : 'none';
-            });
+            renderExperience(filter);
         });
     });
+
+    experienceSeeMoreBtn?.addEventListener('click', () => {
+        isExperienceExpanded = !isExperienceExpanded;
+        renderExperience('all');
+    });
+
+    window.addEventListener('resize', () => {
+        renderExperience(activeExperienceFilter);
+    });
+
+    renderExperience('all');
 }
 
-if (projectSearch) {
-    const cards = Array.from(document.querySelectorAll('.project-card'));
+const filterButtons = document.querySelectorAll('.filter-btn');
+const projectCards = Array.from(document.querySelectorAll('.project-card'));
 
-    const runProjectFilter = () => {
-        const query = projectSearch.value.trim().toLowerCase();
-        let visibleCount = 0;
+if (projectCards.length > 0) {
+    const getProjectRowSize = () => {
+        if (!projectsGrid) return 3;
+        const template = window.getComputedStyle(projectsGrid).gridTemplateColumns;
+        const columnCount = template.split(' ').filter(Boolean).length;
+        return Math.max(1, columnCount || 1);
+    };
 
-        cards.forEach(card => {
+    const renderProjects = () => {
+        const query = projectSearch ? projectSearch.value.trim().toLowerCase() : '';
+        const visibleCards = [];
+
+        projectCards.forEach(card => {
             const text = card.textContent.toLowerCase();
             const techs = (card.dataset.tech || '').split(/\s+/).filter(Boolean);
             const matchesSearch = text.includes(query);
             const matchesTech = activeFilter === 'all' || techs.includes(activeFilter.toLowerCase());
             const show = matchesSearch && matchesTech;
+
             card.style.display = show ? '' : 'none';
-            if (show) visibleCount += 1;
+            if (show) visibleCards.push(card);
         });
 
+        const rowSize = getProjectRowSize();
+        const shouldCollapse = activeFilter === 'all' && query.length === 0 && !isProjectsExpanded;
+        if (shouldCollapse) {
+            visibleCards.forEach((card, index) => {
+                if (index >= rowSize) {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
         if (projectsEmptyState) {
-            projectsEmptyState.hidden = visibleCount !== 0;
+            projectsEmptyState.hidden = visibleCards.length !== 0;
+        }
+
+        if (projectsSeeMoreBtn) {
+            const hasMoreThanOneRow = visibleCards.length > rowSize;
+            const shouldShowToggle = activeFilter === 'all' && query.length === 0 && hasMoreThanOneRow;
+            projectsSeeMoreBtn.hidden = !shouldShowToggle;
+            projectsSeeMoreBtn.textContent = isProjectsExpanded ? 'See Less Projects' : 'See More Projects';
+            projectsSeeMoreBtn.setAttribute('aria-expanded', String(isProjectsExpanded));
         }
     };
 
-    projectSearch.addEventListener('input', runProjectFilter);
-    clearProjectSearch?.addEventListener('click', () => {
-        projectSearch.value = '';
-        runProjectFilter();
-        projectSearch.focus();
+    projectSearch?.addEventListener('input', () => {
+        isProjectsExpanded = false;
+        renderProjects();
     });
-}
 
-// Technology filter for projects
-const filterButtons = document.querySelectorAll('.filter-btn');
-const projectCards = Array.from(document.querySelectorAll('.project-card'));
+    clearProjectSearch?.addEventListener('click', () => {
+        if (projectSearch) {
+            projectSearch.value = '';
+            projectSearch.focus();
+        }
+        isProjectsExpanded = false;
+        renderProjects();
+    });
 
-if (filterButtons.length > 0) {
     filterButtons.forEach(btn => {
         btn.addEventListener('click', () => {
-            // Update active button
             filterButtons.forEach(b => b.classList.remove('filter-active'));
             btn.classList.add('filter-active');
             activeFilter = btn.dataset.tech || 'all';
-
-            // Filter cards
-            projectCards.forEach(card => {
-                const techs = (card.dataset.tech || '').split(/\s+/).filter(Boolean);
-                const matchesFilter = activeFilter === 'all' || techs.includes(activeFilter.toLowerCase());
-                const matchesSearch = projectSearch ? card.textContent.toLowerCase().includes(projectSearch.value.toLowerCase()) : true;
-                card.style.display = (matchesFilter && matchesSearch) ? '' : 'none';
-            });
+            isProjectsExpanded = false;
+            renderProjects();
         });
     });
+
+    projectsSeeMoreBtn?.addEventListener('click', () => {
+        isProjectsExpanded = !isProjectsExpanded;
+        renderProjects();
+    });
+
+    window.addEventListener('resize', renderProjects);
+
+    renderProjects();
 }
 
 if (copyEmailBtn) {
