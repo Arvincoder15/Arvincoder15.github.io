@@ -2,7 +2,7 @@
 
 Professional portfolio website built to showcase software engineering, AI/data projects, competitions, and technical writing in a clean, responsive experience.
 
-Live site: **https://arvincoder15.github.io/**
+Live site: **https://arvinaskari.me/**
 
 ## Overview
 
