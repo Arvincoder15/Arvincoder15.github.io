@@ -851,31 +851,6 @@ textarea:focus-visible {
     word-wrap: break-word;
 }
 
-.experience-card--new {
-    border-left-color: #b21f24;
-    background:
-        radial-gradient(110% 90% at 100% 0%, color-mix(in srgb, #b21f24 20%, transparent) 0%, transparent 62%),
-        linear-gradient(135deg, var(--surface) 0%, color-mix(in srgb, var(--surface) 95%, var(--text)) 100%);
-}
-
-.role-chip {
-    position: absolute;
-    top: 12px;
-    right: 12px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 4px 10px;
-    border-radius: 999px;
-    font-size: 0.64rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    font-weight: 800;
-    color: #fff;
-    background: linear-gradient(135deg, #b21f24, #7d1418);
-    box-shadow: 0 6px 14px rgba(125, 20, 24, 0.35);
-}
-
 .experience-logo {
     width: 64px;
     height: 64px;
