@@ -825,20 +825,6 @@ textarea:focus-visible {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-.exp-filter-btn[data-filter="internships"],
-.exp-filter-btn[data-filter="clubs"] {
-    font-weight: 800;
-    background: linear-gradient(135deg, var(--surface), color-mix(in srgb, var(--surface) 90%, var(--text)));
-    border-width: 1.5px;
-}
-
-.exp-filter-btn[data-filter="internships"]:hover,
-.exp-filter-btn[data-filter="clubs"]:hover,
-.exp-filter-btn[data-filter="internships"].active,
-.exp-filter-btn[data-filter="clubs"].active {
-    background: linear-gradient(135deg, color-mix(in srgb, var(--surface) 97%, var(--brand)), color-mix(in srgb, var(--surface) 90%, var(--brand)));
-}
-
 .experience-card {
     padding: 22px;
     position: relative;

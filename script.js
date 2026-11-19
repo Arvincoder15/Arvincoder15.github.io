@@ -23,10 +23,6 @@ const docFrame = document.getElementById('docFrame');
 const docModalTitle = document.getElementById('docModalTitle');
 const docModalOpen = document.getElementById('docModalOpen');
 const closeDocBtn = document.getElementById('closeDocBtn');
-const aboutGalleryItems = Array.from(document.querySelectorAll('.about-gallery-item'));
-const aboutGalleryPrev = document.getElementById('aboutGalleryPrev');
-const aboutGalleryNext = document.getElementById('aboutGalleryNext');
-const aboutGalleryDots = document.querySelector('.about-gallery-dots');
 let activeFilter = 'all';
 let activeExperienceFilter = 'all';
 let isExperienceExpanded = false;
@@ -52,9 +48,6 @@ function trackProjectClick(projectName, href) {
     }
 }
 
-if (localStorage.getItem('darkMode') === 'enabled') {
-    htmlElement.classList.add('dark-mode');
-}
 
 function updateThemeIcon() {
     if (!darkModeToggle) return;
@@ -62,6 +55,10 @@ function updateThemeIcon() {
     const isDark = htmlElement.classList.contains('dark-mode');
     icon.classList.remove('fa-moon', 'fa-sun');
     icon.classList.add(isDark ? 'fa-sun' : 'fa-moon');
+    const label = isDark ? 'Switch to light mode' : 'Switch to dark mode';
+    darkModeToggle.setAttribute('aria-label', label);
+    darkModeToggle.setAttribute('title', label);
+    document.querySelector('meta[name="theme-color"]').content = isDark ? '#1c1e22' : '#f2f1ed';
 }
 
 updateThemeIcon();
@@ -70,7 +67,9 @@ if (darkModeToggle) {
     darkModeToggle.addEventListener('click', () => {
         htmlElement.classList.toggle('dark-mode');
         const isDark = htmlElement.classList.contains('dark-mode');
-        localStorage.setItem('darkMode', isDark ? 'enabled' : 'disabled');
+        try {
+            localStorage.setItem('portfolioTheme', isDark ? 'dark' : 'light');
+        } catch { /* Theme switching still works without persistent storage. */ }
         updateThemeIcon();
     });
 }
@@ -78,6 +77,7 @@ if (darkModeToggle) {
 if (hamburger && navMenu) {
     hamburger.addEventListener('click', () => {
         navMenu.classList.toggle('open');
+        hamburger.setAttribute('aria-expanded', String(navMenu.classList.contains('open')));
     });
 }
 
@@ -131,39 +131,6 @@ document.querySelectorAll('.doc-link').forEach(link => {
     });
 });
 
-if (aboutGalleryItems.length && aboutGalleryPrev && aboutGalleryNext && aboutGalleryDots) {
-    let galleryIndex = aboutGalleryItems.findIndex(item => item.classList.contains('is-active'));
-    if (galleryIndex < 0) galleryIndex = 0;
-
-    const dots = aboutGalleryItems.map((_, index) => {
-        const dot = document.createElement('button');
-        dot.type = 'button';
-        dot.className = 'about-gallery-dot';
-        dot.setAttribute('aria-label', `Show photo ${index + 1}`);
-        dot.addEventListener('click', () => setGalleryIndex(index));
-        aboutGalleryDots.appendChild(dot);
-        return dot;
-    });
-
-    const setGalleryIndex = nextIndex => {
-        aboutGalleryItems[galleryIndex]?.classList.remove('is-active');
-        dots[galleryIndex]?.classList.remove('is-active');
-        galleryIndex = (nextIndex + aboutGalleryItems.length) % aboutGalleryItems.length;
-        aboutGalleryItems[galleryIndex].classList.add('is-active');
-        dots[galleryIndex]?.classList.add('is-active');
-    };
-
-    aboutGalleryPrev.addEventListener('click', () => {
-        setGalleryIndex(galleryIndex - 1);
-    });
-
-    aboutGalleryNext.addEventListener('click', () => {
-        setGalleryIndex(galleryIndex + 1);
-    });
-
-    setGalleryIndex(galleryIndex);
-}
-
 if (closeDocBtn && docModal) {
     closeDocBtn.addEventListener('click', () => {
         docModal.classList.remove('open');
@@ -187,12 +154,14 @@ if (docModal) {
 document.querySelectorAll('.nav-link').forEach(link => {
     link.addEventListener('click', () => {
         navMenu?.classList.remove('open');
+        hamburger?.setAttribute('aria-expanded', 'false');
     });
 });
 
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', event => {
         const targetId = anchor.getAttribute('href');
+        if (!targetId || targetId === '#') return;
         const target = document.querySelector(targetId);
         if (!target) return;
         event.preventDefault();
@@ -340,13 +309,6 @@ const filterButtons = document.querySelectorAll('.filter-btn');
 const projectCards = Array.from(document.querySelectorAll('.project-card'));
 
 if (projectCards.length > 0) {
-    const getProjectRowSize = () => {
-        if (!projectsGrid) return 3;
-        const template = window.getComputedStyle(projectsGrid).gridTemplateColumns;
-        const columnCount = template.split(' ').filter(Boolean).length;
-        return Math.max(1, columnCount || 1);
-    };
-
     const renderProjects = () => {
         const query = projectSearch ? projectSearch.value.trim().toLowerCase() : '';
         const visibleCards = [];
@@ -362,11 +324,11 @@ if (projectCards.length > 0) {
             if (show) visibleCards.push(card);
         });
 
-        const rowSize = getProjectRowSize();
+        const previewCount = 3;
         const shouldCollapse = activeFilter === 'all' && query.length === 0 && !isProjectsExpanded;
         if (shouldCollapse) {
             visibleCards.forEach((card, index) => {
-                if (index >= rowSize) {
+                if (index >= previewCount) {
                     card.style.display = 'none';
                 }
             });
@@ -377,7 +339,7 @@ if (projectCards.length > 0) {
         }
 
         if (projectsSeeMoreBtn) {
-            const hasMoreThanOneRow = visibleCards.length > rowSize;
+            const hasMoreThanOneRow = visibleCards.length > previewCount;
             const shouldShowToggle = activeFilter === 'all' && query.length === 0 && hasMoreThanOneRow;
             projectsSeeMoreBtn.hidden = !shouldShowToggle;
             projectsSeeMoreBtn.textContent = isProjectsExpanded ? 'See Less Projects' : 'See More Projects';
@@ -401,8 +363,12 @@ if (projectCards.length > 0) {
 
     filterButtons.forEach(btn => {
         btn.addEventListener('click', () => {
-            filterButtons.forEach(b => b.classList.remove('filter-active'));
+            filterButtons.forEach(b => {
+                b.classList.remove('filter-active');
+                b.setAttribute('aria-pressed', 'false');
+            });
             btn.classList.add('filter-active');
+            btn.setAttribute('aria-pressed', 'true');
             activeFilter = btn.dataset.tech || 'all';
             isProjectsExpanded = false;
             renderProjects();

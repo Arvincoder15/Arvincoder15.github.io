@@ -2,28 +2,28 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://plausible.io 'sha256-C9caQI13+J1Yr+fzW3RfWygYIrxC+2gJKEjdYvDvhg8='; script-src-attr 'none'; style-src 'self' https://cdnjs.cloudflare.com 'sha256-G+GOYmv0IkLLo/4fBxCXbxTEI9YEerK50ygHONsY8VE='; style-src-attr 'unsafe-inline'; font-src 'self' https://cdnjs.cloudflare.com; img-src 'self' data:; connect-src 'self' https://plausible.io https://formspree.io; frame-src 'self'; object-src 'self'; base-uri 'none'; form-action https://formspree.io">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Arvin Askari is a Software Engineer and Data Analyst building practical AI, analytics, and full-stack products.">
     <meta name="robots" content="index,follow">
-    <meta name="theme-color" content="#f5efe2">
+    <meta name="theme-color" content="#f2f1ed">
     <meta name="color-scheme" content="light dark">
+    <script src="theme.js"></script>
     <meta property="og:type" content="website">
     <meta property="og:title" content="Arvin Askari | Software Engineer & Data Analyst">
     <meta property="og:description" content="Portfolio of AI, analytics, and full-stack projects by Arvin Askari.">
     <meta property="og:url" content="https://arvincoder15.github.io/">
-    <meta property="og:image" content="https://arvincoder15.github.io/images/arvin.png">
     <meta property="og:site_name" content="Arvin Askari Portfolio">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Arvin Askari | CS Student & Software Engineer & Data Analyst">
     <meta name="twitter:description" content="Portfolio of AI, analytics, and full-stack projects by Arvin Askari.">
-    <meta name="twitter:image" content="https://arvincoder15.github.io/images/arvin.png">
         <script type="application/ld+json">
                 {
                     "@context": "https://schema.org",
                     "@type": "Person",
                     "name": "Arvin Askari",
                     "url": "https://arvincoder15.github.io/",
-                    "image": "https://arvincoder15.github.io/images/arvin.png",
                     "jobTitle": "CS Student & Software Engineer & Data Analyst",
                     "sameAs": [
                         "https://linkedin.com/in/arvin-askari",
@@ -37,8 +37,10 @@
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link rel="preconnect" href="https://plausible.io">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="modern.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha384-iw3OoTErCYJJB9mCa8LNS2hbsQ7M3C0EpIsO/H5+EGAkPGc6rk+V8i04oW/K5xq0" crossorigin="anonymous">
     <script defer data-domain="arvincoder15.github.io" src="https://plausible.io/js/script.js"></script>
+    <noscript><style>.reveal { opacity: 1; transform: none; }</style></noscript>
 </head>
 <body>
     <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -46,7 +48,7 @@
 
     <nav class="navbar">
         <div class="nav-container">
-            <a href="#hero" class="logo">Arvin Askari</a>
+            <a href="#hero" class="logo"><span class="logo-mark">Arvin Askari</span></a>
             <ul class="nav-menu" id="navMenu">
                 <li><a href="#about" class="nav-link">About</a></li>
                 <li><a href="#experience" class="nav-link">Experience</a></li>
@@ -55,9 +57,9 @@
                 <li><a href="#writing" class="nav-link">Articles</a></li>
                 <li><a href="#skills" class="nav-link">Skills</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
-                <li><button id="dark-mode-toggle" class="theme-toggle" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button></li>
+                <li><button id="dark-mode-toggle" class="theme-toggle" aria-label="Switch to dark mode" title="Switch to dark mode"><i class="fas fa-moon"></i></button></li>
             </ul>
-            <button class="hamburger" id="hamburger" aria-label="Open menu">
+            <button class="hamburger" id="hamburger" aria-expanded="false" aria-controls="navMenu" aria-label="Toggle navigation">
                 <span></span><span></span><span></span>
             </button>
         </div>
@@ -67,19 +69,19 @@
     <header id="hero" class="hero">
         <div class="container hero-layout">
             <div class="hero-left reveal">
-                <p class="hero-kicker">Computer Science @ Queen’s University • Software Design Specialization</p>
-                <h1 class="hero-title">Arvin Askari</h1>
-                <p class="hero-subtitle">Software Developer · AI & Data Enthusiast</p>
-                <p class="hero-description">I build data-driven systems that turn complex information into real-world impact, across finance, transit, healthcare, and sports intelligence.</p>
+                <p class="hero-kicker"><span class="status-dot"></span> Software, data &amp; a little curiosity.</p>
+                <p class="hero-eyebrow">Hey, I’m</p>
+                <h1 class="hero-title">Arvin<span>Askari<span class="name-period">.</span></span></h1>
+                <p class="hero-subtitle">Computer Science at Queen’s. Incoming @ AMD.</p>
+                <p class="hero-description">I study Computer Science at Queen’s. I’ve worked on investing tools at CIBC, transit data at Metrolinx, and soccer analytics with QSAO. Here’s some of what I’ve been working on.</p>
 
                 <div class="hero-buttons">
-                    <a href="#projects" class="btn btn-primary">View My Work</a>
-                    <a href="#contact" id="getInTouchBtn" class="btn btn-primary">Get In Touch</a>
-                    <button type="button" id="openResumeBtn" class="btn btn-primary">My Resume</button>
+                    <a href="#projects" class="btn btn-primary">Explore projects <span aria-hidden="true">↗</span></a>
+                    <a href="#contact" id="getInTouchBtn" class="btn btn-secondary">Let’s talk <span aria-hidden="true">↗</span></a>
+                    <button type="button" id="openResumeBtn" class="btn btn-secondary">Resume <span aria-hidden="true">↓</span></button>
                 </div>
 
-                <div class="hero-signature" aria-label="signature">Arvin Askari</div>
-
+                <div class="hero-experience"><span>PREVIOUSLY AT</span><p>CIBC <span aria-hidden="true">/</span> Metrolinx</p></div>
                 <div class="social-links">
                     <a href="https://linkedin.com/in/arvin-askari" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
                     <a href="https://github.com/Arvincoder15" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="GitHub"><i class="fab fa-github"></i></a>
@@ -87,28 +89,32 @@
                 </div>
             </div>
 
-            <div class="hero-right reveal">
-                <div class="hero-photo-wrap">
-                    <img src="images/arvin.png" alt="Portrait of Arvin Askari" class="hero-photo" fetchpriority="high" decoding="async">
-                </div>
-            </div>
+            <aside class="hero-right hero-next reveal" aria-label="Next chapter">
+                <p class="panel-kicker">THE NEXT CHAPTER</p>
+                <img class="hero-amd-logo" src="images/amd.svg" alt="AMD" width="140" height="60">
+                <h2>Building what’s next.</h2>
+                <p>Incoming Technical Business Operations Analyst Intern</p>
+                <div class="hero-next-details"><span>May 2027 — August 2028</span><span>Markham, Ontario</span></div>
+                <a href="#experience" class="hero-next-link">Explore my journey <span aria-hidden="true">↗</span></a>
+            </aside>
         </div>
     </header>
 
     <section class="now-strip reveal" aria-label="Current focus">
         <div class="container now-strip-inner">
-            <span class="now-label">Now</span>
-            <p>Recently completed a Software Developer internship at CIBC • Open to Summer 2027 opportunities • Shipping constant improvements to my portfolio</p>
+            <span class="now-label"><span class="status-dot" aria-hidden="true"></span> Currently</span>
+            <p>Joining AMD in May 2027 for a 16-month internship. Until then, studying Computer Science at Queen’s University and leading soccer analytics at QSAO.</p>
+            <a class="now-link" href="#contact">Get in touch <span aria-hidden="true">↗</span></a>
         </div>
     </section>
 
     <section id="about" class="section">
         <div class="container">
-            <h2 class="section-title reveal">About Me</h2>
+            <h2 class="section-title reveal"><span class="section-index">01 /</span> A little about me</h2>
             <div class="about-grid">
                 <article class="about-card reveal">
                     <p class="about-intro-lead">Hi, I'm Arvin!</p>
-                    <p class="about-body">I am a third-year Queen’s Computing student specializing in Software Design, with a Certificate in Business from the Smith School of Business. I enjoy working at the intersection of technical depth and real-world impact, whether that’s analyzing transit records, building RAG-powered healthcare tools, or translating sports metrics into data-driven insights.</p>
+                    <p class="about-body">I am a third-year Computer Science student at Queen's University, specializing in Software Design, with a Certificate in Business from the Smith School of Business. I enjoy working at the intersection of technical depth and real-world impact, whether that’s analyzing transit records, building RAG-powered healthcare tools, or translating sports metrics into data-driven insights.</p>
                     <p class="about-body">Beyond code, I love travelling and sports. I’ve played competitive soccer all my life and earned my 2nd degree black belt as a karate instructor, experiences that taught me resilience, communication, and adaptability.</p>
 
                     <div class="about-divider"></div>
@@ -117,21 +123,21 @@
                     <div class="about-edu-grid">
                         <div class="about-edu-card">
                             <div class="edu-logo-mark edu-logo-mark--queens">
-                                <img src="images/queens.png" alt="Queen's University logo placeholder" class="edu-logo-img" loading="lazy" decoding="async">
+                                <img src="images/queens.png" alt="Queen's University logo" class="edu-logo-img" loading="lazy" decoding="async">
                             </div>
                             <div class="edu-info">
-                                <strong>Queen’s University</strong>
-                                <span>Bachelor of Computing (Honours) &middot; Software Design Specialization &middot; 2024 &ndash; 2028</span>
+                                <strong>Queen's University</strong>
+                                <span>Bachelor of Computing (Honours) - </span>
+                                <span class="education-specialization">Software Design Specialization &middot; 2024–2029</span>
                             </div>
                         </div>
                         <div class="about-edu-card">
                             <div class="edu-logo-mark edu-logo-mark--smith">
-                                <img src="images/smith.png" alt="Smith School of Business logo placeholder" class="edu-logo-img" loading="lazy" decoding="async">
+                                <img src="images/smith.png" alt="Smith School of Business logo" class="edu-logo-img" loading="lazy" decoding="async">
                             </div>
                             <div class="edu-info">
                                 <strong>Smith School of Business</strong>
-                                <span>Certificate in Business &middot;</span>
-                                <span>2025 &ndash; 2028</span>
+                                <span>Certificate in Business &middot; 2025 &ndash; 2029</span>
                             </div>
                         </div>
                     </div>
@@ -148,23 +154,13 @@
                     </div>
                 </article>
 
-                <aside class="about-side reveal">
-                    <p class="about-gallery-label">Some photos of me!</p>
-                    <div class="about-gallery" role="region" aria-label="Photo gallery">
-                        <div class="about-gallery-view" aria-live="polite">
-                            <figure class="about-gallery-item is-active">
-                                <img src="images/arvina.jpeg" alt="Arvin Askari portrait" loading="lazy" decoding="async">
-                                <figcaption class="about-gallery-caption">Portrait</figcaption>
-                            </figure>
-                            <figure class="about-gallery-item">
-                                <img src="images/punta.jpg" alt="Karate" loading="lazy" decoding="async">
-                                <figcaption class="about-gallery-caption">Vacation</figcaption>
-                            </figure>
-                            <button type="button" id="aboutGalleryPrev" class="gallery-arrow gallery-arrow--prev" aria-label="Previous photo"><i class="fas fa-chevron-left"></i></button>
-                            <button type="button" id="aboutGalleryNext" class="gallery-arrow gallery-arrow--next" aria-label="Next photo"><i class="fas fa-chevron-right"></i></button>
-                        </div>
-                        <div class="about-gallery-dots" role="tablist" aria-label="Choose photo"></div>
-                    </div>
+                <aside class="about-side focus-panel reveal">
+                    <p class="panel-kicker">CURRENTLY EXPLORING</p>
+                    <h3>What I’m working on</h3>
+                    <div class="focus-item"><span>01</span><div><h4>Leading at QSAO</h4><p>Managing five data analysts on soccer analytics and content projects.</p></div></div>
+                    <div class="focus-item"><span>02</span><div><h4>Studying software design</h4><p>Third-year Computing at Queen’s, alongside a Certificate in Business.</p></div></div>
+                    <div class="focus-item"><span>03</span><div><h4>Beyond the keyboard</h4><p>Competitive soccer, travel, and teaching karate as a second-degree black belt.</p></div></div>
+                    <a href="https://github.com/Arvincoder15" target="_blank" rel="noopener noreferrer" class="focus-link">Follow along on GitHub <span aria-hidden="true">↗</span></a>
                 </aside>
             </div>
         </div>
@@ -172,13 +168,25 @@
 
     <section id="experience" class="section section-alt">
         <div class="container">
-            <h2 class="section-title reveal">Experience</h2>
-            <div class="experience-filters reveal" role="tablist" aria-label="Filter experience by category">
+            <h2 class="section-title reveal"><span class="section-index">02 /</span> Experience</h2>
+            <div class="experience-filters reveal" role="group" aria-label="Filter experience by category">
                 <button type="button" class="exp-filter-btn active" data-filter="all" aria-pressed="true">All</button>
                 <button type="button" class="exp-filter-btn" data-filter="internships" aria-pressed="false">Internships</button>
                 <button type="button" class="exp-filter-btn" data-filter="clubs" aria-pressed="false">Clubs</button>
             </div>
             <div class="experience-grid">
+                <article class="experience-card reveal" data-exp-category="internships data">
+                    <div class="experience-logo experience-logo--amd"><img src="images/amd.svg" alt="AMD" loading="lazy" decoding="async"></div>
+                    <div class="card-header">
+                        <h3>Technical Business Operations Analyst Intern</h3>
+                        <span class="date-badge">May 2027 – August 2028</span>
+                    </div>
+                    <p class="company">AMD • Markham, Ontario</p>
+                    <ul class="highlights-list">
+                        <li>Incoming 16-Month Intern at AMD within the Software Engineering Operations team of AMD’s GPU Technologies & Engineering Group.</li>
+                    </ul>
+                </article>
+
                 <article class="experience-card reveal" data-exp-category="internships software">
                     <div class="experience-logo"><img src="images/cibc.png" alt="CIBC"></div>
                     <div class="card-header">
@@ -204,6 +212,34 @@
                         <li>Analyzed 50,000+ operational data points across punctuality, delays, and ridership to generate business insights and support data-driven strategic decisions for senior leadership.</li>
                         <li>Automated and optimized Excel and Power BI reporting workflows, improving operational efficiency and reducing manual processing time by 30% while strengthening KPI tracking and performance monitoring.</li>
                         <li>Collaborated cross-functionally with planning, operations, and engineering teams to align stakeholders on key performance metrics, support process improvements, and enable accurate service adjustments.</li>
+                    </ul>
+                </article>
+
+                <article class="experience-card reveal" data-exp-category="clubs data">
+                    <div class="experience-logo"><img src="images/qsao.png" alt="QSAO"></div>
+                    <div class="card-header">
+                        <h3>Project Manager</h3>
+                        <span class="date-badge">Sep 2026 - Apr 2027</span>
+                    </div>
+                    <p class="company">QSAO • Kingston, ON</p>
+                    <ul class="highlights-list">
+                        <li>Manage a team of 5 data analysts delivering soccer analytics projects, data analysis, and content development.</li>
+                        <li>Manage project timelines and ensure high-quality, data-driven insights.</li>
+                        <li>Coordinate team collaboration across data analysis and content development to turn soccer analytics findings into clear, actionable insights.</li>
+                    </ul>
+                </article>
+
+                <article class="experience-card reveal" data-exp-category="clubs ai data">
+                    <div class="experience-logo"><img src="images/qmind.png" alt="QMIND"></div>
+                    <div class="card-header">
+                        <h3>AI Research Design Team Member - Beyond AUROC</h3>
+                        <span class="date-badge">Sep 2026 - Apr 2027</span>
+                    </div>
+                    <p class="company">QMIND • Kingston, ON</p>
+                    <ul class="highlights-list">
+                        <li>Evaluate chest-pain AI models beyond AUROC, focusing on calibration, safety, generalizability, and clinical usefulness.</li>
+                        <li>Review existing evidence for diagnosing acute coronary syndrome and guiding short-term prognosis and patient disposition in emergency departments.</li>
+                        <li>Develop a workflow-aware MIMIC-IV benchmark to assess whether these models are ready for real-world clinical decision-making.</li>
                     </ul>
                 </article>
 
@@ -249,20 +285,6 @@
                     </ul>
                 </article>
 
-                <article class="experience-card reveal" data-exp-category="clubs web">
-                    <div class="experience-logo"><img src="images/qweb.jpeg" alt="QWeb"></div>
-                    <div class="card-header">
-                        <h3>Full-Stack Developer</h3>
-                        <span class="date-badge">Jan 2025 - Apr 2025</span>
-                    </div>
-                    <p class="company">QWeb • Kingston, ON</p>
-                    <ul class="highlights-list">
-                        <li>Built a responsive client site with HTML, CSS, JavaScript, and React.</li>
-                        <li>Streamlined backend workflows to deliver approximately 20% faster.</li>
-                        <li>Translated goals into requirements, cutting approvals by 30%.</li>
-                    </ul>
-                </article>
-
                 <article class="experience-card reveal" data-exp-category="clubs data">
                     <div class="experience-logo"><img src="images/quantt1.png" alt="QUANTT"></div>
                     <div class="card-header">
@@ -285,25 +307,25 @@
 
     <section id="projects" class="section">
         <div class="container">
-            <h2 class="section-title reveal">Projects</h2>
-            <p class="section-intro reveal">Featured work is pinned first. Status badges update the current stage of each project.</p>
+            <h2 class="section-title reveal"><span class="section-index">03 /</span> Selected projects</h2>
+            <p class="section-intro reveal">Healthcare tools, movie recommendations, and a few experiments along the way. Explore the code behind each project.</p>
             <div class="projects-tools reveal">
-                <input id="projectSearch" class="project-search" type="text" placeholder="Search projects by name or keyword..." aria-label="Search projects">
+                <input id="projectSearch" class="project-search" type="text" placeholder="Find a project or technology…" aria-label="Search projects">
                 <button id="clearProjectSearch" type="button" class="btn btn-outline btn-small">Clear</button>
             </div>
-            <div class="projects-filter reveal" role="tablist" aria-label="Filter projects by technology">
-                <button type="button" class="filter-btn filter-active" data-tech="all">All</button>
-                <button type="button" class="filter-btn" data-tech="typescript">TypeScript</button>
-                <button type="button" class="filter-btn" data-tech="python">Python</button>
-                <button type="button" class="filter-btn" data-tech="react">React</button>
-                <button type="button" class="filter-btn" data-tech="ai">AI/ML</button>
-                <button type="button" class="filter-btn" data-tech="javascript">JavaScript</button>
+            <div class="projects-filter reveal" role="group" aria-label="Filter projects by technology">
+                <button type="button" class="filter-btn filter-active" aria-pressed="true" data-tech="all">All</button>
+                <button type="button" class="filter-btn" aria-pressed="false" data-tech="typescript">TypeScript</button>
+                <button type="button" class="filter-btn" aria-pressed="false" data-tech="python">Python</button>
+                <button type="button" class="filter-btn" aria-pressed="false" data-tech="react">React</button>
+                <button type="button" class="filter-btn" aria-pressed="false" data-tech="ai">AI/ML</button>
+                <button type="button" class="filter-btn" aria-pressed="false" data-tech="javascript">JavaScript</button>
             </div>
             <div class="projects-grid">
                 <article class="project-card featured reveal" data-tech="typescript python ai">
                     <a href="https://github.com/kevinvalenciaa/postopcare-ai" target="_blank" rel="noopener noreferrer" class="project-media-link" data-project="PostOpCare">
                         <div class="project-media" aria-hidden="true">
-                            <img src="images/postopcare.png" alt="PostOpCare healthcare RAG system preview placeholder" loading="lazy" decoding="async">
+                            <img src="images/postopcare.png" alt="PostOpCare healthcare RAG system preview" loading="lazy" decoding="async">
                         </div>
                     </a>
                     <div class="project-content">
@@ -324,13 +346,14 @@
                             <span>NLP</span>
                             <span>Healthcare</span>
                         </div>
+                        <a class="project-source project-link" href="https://github.com/kevinvalenciaa/postopcare-ai" target="_blank" rel="noopener noreferrer" aria-label="View PostOpCare source on GitHub">View source <span aria-hidden="true">↗</span></a>
                     </div>
                 </article>
         
                 <article class="project-card reveal" data-tech="typescript react ai">
                     <a href="https://github.com/Arvincoder15/CineMatch" target="_blank" rel="noopener noreferrer" class="project-media-link" data-project="CineMatch">
                         <div class="project-media" aria-hidden="true">
-                            <img src="images/cinematch.png" alt="CineMatch preview placeholder" loading="lazy" decoding="async">
+                            <img src="images/cinematch.png" alt="CineMatch preview" loading="lazy" decoding="async">
                         </div>
                     </a>
                     <div class="project-content">
@@ -348,12 +371,13 @@
                             <span>API Integration</span>
                             <span>Gemini AI</span>
                         </div>
+                        <a class="project-source project-link" href="https://github.com/Arvincoder15/CineMatch" target="_blank" rel="noopener noreferrer" aria-label="View CineMatch source on GitHub">View source <span aria-hidden="true">↗</span></a>
                     </div>
                 </article>
                 <article class="project-card reveal" data-tech="javascript typescript">
                     <a href="https://github.com/Arvincoder15/Arvincoder15.github.io" target="_blank" rel="noopener noreferrer" class="project-media-link" data-project="Personal Portfolio Website">
                         <div class="project-media" aria-hidden="true">
-                            <img src="images/website.png" alt="Personal portfolio website preview placeholder" loading="lazy" decoding="async">
+                            <img src="images/website.png" alt="Personal portfolio website preview" loading="lazy" decoding="async">
                         </div>
                     </a>
                     <div class="project-content">
@@ -370,6 +394,7 @@
                             <span>HTML5</span>
                             <span>CSS3</span>
                         </div>
+                        <a class="project-source project-link" href="https://github.com/Arvincoder15/Arvincoder15.github.io" target="_blank" rel="noopener noreferrer" aria-label="View Personal Website source on GitHub">View source <span aria-hidden="true">↗</span></a>
                     </div>
                 </article>
 
@@ -397,6 +422,7 @@
                             <span>Text-to-Speech</span>
                             <span>Voice-to-Speech</span>
                         </div>
+                        <a class="project-source project-link" href="https://github.com/NigelGroen5/voicecare-AI" target="_blank" rel="noopener noreferrer" aria-label="View VoiceCare AI source on GitHub">View source <span aria-hidden="true">↗</span></a>
                     </div>
                 </article>
 
@@ -423,13 +449,14 @@
                             <span>Gemini API</span>
                             <span>AI Chatbot</span>
                         </div>
+                        <a class="project-source project-link" href="https://github.com/Elrich-Chen/QHacks_2025" target="_blank" rel="noopener noreferrer" aria-label="View Landlord Negotiation Simulator source on GitHub">View source <span aria-hidden="true">↗</span></a>
                     </div>
                 </article>
 
                 <article class="project-card reveal" data-tech="python">
                     <a href="https://github.com/Arvincoder15/Police-Dodger-Game" target="_blank" rel="noopener noreferrer" class="project-media-link" data-project="Police-Dodger-Game">
                         <div class="project-media" aria-hidden="true">
-                            <img src="images/police.jpeg" alt="Police Dodger game preview placeholder" loading="lazy" decoding="async">
+                            <img src="images/police.jpeg" alt="Police Dodger game preview" loading="lazy" decoding="async">
                         </div>
                     </a>
                     <div class="project-content">
@@ -448,6 +475,7 @@
                             <span>Video Game Design</span>
                             <span>2D Graphics</span>
                         </div>
+                        <a class="project-source project-link" href="https://github.com/Arvincoder15/Police-Dodger-Game" target="_blank" rel="noopener noreferrer" aria-label="View Police Dodger source on GitHub">View source <span aria-hidden="true">↗</span></a>
                     </div>
                 </article>
             </div>
@@ -460,7 +488,7 @@
 
     <section id="competitions" class="section section-alt">
         <div class="container">
-            <h2 class="section-title reveal">Case Competitions</h2>
+            <h2 class="section-title reveal"><span class="section-index">04 /</span> Case Competitions</h2>
             <div class="hack-grid">
                 <article class="hack-card reveal">
                     <a href="https://github.com/Arvincoder15/QSAO---Arizona-DiamondBacks-Model" target="_blank" rel="noopener noreferrer" class="hack-media-link">
@@ -524,7 +552,7 @@
 
     <section id="writing" class="section">
         <div class="container">
-            <h2 class="section-title reveal">Articles</h2>
+            <h2 class="section-title reveal"><span class="section-index">05 /</span> Articles</h2>
 
             <article class="article-card reveal">
                 <a href="https://github.com/Arvincoder15/manutd-possession-analysis" target="_blank" rel="noopener noreferrer" class="article-media-link">
@@ -568,7 +596,7 @@
                     </div>
                     <p class="article-summary">A data-backed look at managerial bounce patterns at Man United, with expectations for Ruben Amorim’s tenure.</p>
                     <div class="link-row">
-                        <button type="button" class="link-pill doc-link" data-doc="https://www.qsao-queens.com/content/2025/2/6/the-managerial-bounce-at-manchester-united-the-history-and-what-to-expect-with-ruben-amorim" data-title="The Managerial Bounce at Manchester United">Read Article</button>
+                        <a class="link-pill" href="https://www.qsao-queens.com/content/2025/2/6/the-managerial-bounce-at-manchester-united-the-history-and-what-to-expect-with-ruben-amorim" target="_blank" rel="noopener noreferrer">Read Article <span aria-hidden="true">↗</span></a>
                     </div>
                 </div>
             </article>
@@ -577,7 +605,7 @@
 
     <section id="skills" class="section section-alt">
         <div class="container">
-            <h2 class="section-title reveal">Technical Skills</h2>
+            <h2 class="section-title reveal"><span class="section-index">06 /</span> Technical Skills</h2>
             <div class="skills-grid modern">
                 <article class="skill-category reveal">
                     <div class="skill-head">
@@ -586,15 +614,12 @@
                     </div>
                     <div class="skill-meter">
                         <label>Python / Java / C / C++ / SQL / Bash</label>
-                        <div class="skill-meter-track"><span class="skill-meter-fill" style="--level: 94%"></span></div>
                     </div>
                     <div class="skill-meter">
                         <label>JavaScript / TypeScript</label>
-                        <div class="skill-meter-track"><span class="skill-meter-fill" style="--level: 88%"></span></div>
                     </div>
                     <div class="skill-meter">
                         <label>AngularJS / React / Next.js</label>
-                        <div class="skill-meter-track"><span class="skill-meter-fill" style="--level: 84%"></span></div>
                     </div>
                     <div class="skill-tags">
                         <span>Flask</span><span>FastAPI</span><span>APIs</span><span>HTML/CSS</span>
@@ -608,15 +633,12 @@
                     </div>
                     <div class="skill-meter">
                         <label>NLP / LLM Pipelines</label>
-                        <div class="skill-meter-track"><span class="skill-meter-fill" style="--level: 90%"></span></div>
                     </div>
                     <div class="skill-meter">
                         <label>Power BI</label>
-                        <div class="skill-meter-track"><span class="skill-meter-fill" style="--level: 85%"></span></div>
                     </div>
                     <div class="skill-meter">
                         <label>Data Analysis & Visualization</label>
-                        <div class="skill-meter-track"><span class="skill-meter-fill" style="--level: 92%"></span></div>
                     </div>
                     <div class="skill-tags">
                         <span>Pandas</span><span>NumPy</span><span>Matplotlib</span><span>RAG</span>
@@ -630,15 +652,12 @@
                     </div>
                     <div class="skill-meter">
                         <label>GitHub & Collaboration</label>
-                        <div class="skill-meter-track"><span class="skill-meter-fill" style="--level: 90%"></span></div>
                     </div>
                     <div class="skill-meter">
                         <label>Automation & Productivity</label>
-                        <div class="skill-meter-track"><span class="skill-meter-fill" style="--level: 86%"></span></div>
                     </div>
                     <div class="skill-meter">
                         <label>Microsoft Office/ Excel / Word / PowerPoint</label>
-                        <div class="skill-meter-track"><span class="skill-meter-fill" style="--level: 74%"></span></div>
                     </div>
                     <div class="skill-tags">
                         <span>VS Code</span><span>Git/GitHub</span><span>Jira</span><span>Confluence</span><span>Azure DevOps</span>
@@ -650,13 +669,13 @@
 
     <section id="contact" class="section">
         <div class="container">
-            <h2 class="section-title reveal">Contact</h2>
+            <h2 class="section-title reveal"><span class="section-index">07 /</span> Contact</h2>
             <div class="contact-grid">
                 <div class="contact-info reveal">
-                    <h3>Let’s Build Something Meaningful</h3>
+                    <h3>Get in touch</h3>
                     <p>I respond quickly to coffee chats, project collaborations, internship opportunities, and technical discussions.</p>
                     <ul class="contact-points">
-                        <li><i class="fas fa-envelope-square"></i><span>arvin.askari@queensu.ca</span></li>
+                        <li><i class="fas fa-envelope-square"></i><a href="mailto:arvin.askari@queensu.ca">arvin.askari@queensu.ca</a></li>
                         <li><i class="fas fa-briefcase"></i><span>Open to internships and impact-driven work</span></li>
                         <li><i class="fas fa-code"></i><span>Email me directly or use the form!</span></li>
                     </ul>
@@ -670,9 +689,9 @@
                         <label for="company">Company</label>
                         <input id="company" type="text" name="company" tabindex="-1" autocomplete="off">
                     </div>
-                    <input type="text" name="name" placeholder="Your Name" required class="form-input" autocomplete="name" maxlength="80">
-                    <input type="email" name="email" placeholder="Your Email" required class="form-input" autocomplete="email" maxlength="120">
-                    <textarea name="message" placeholder="Your Message" required class="form-textarea" minlength="10" maxlength="2000"></textarea>
+                    <input type="text" name="name" placeholder="Your Name" required class="form-input" aria-label="Your name" autocomplete="name" maxlength="80">
+                    <input type="email" name="email" placeholder="Your Email" required class="form-input" aria-label="Your email" autocomplete="email" maxlength="120">
+                    <textarea name="message" placeholder="Your Message" required class="form-textarea" aria-label="Your message" minlength="10" maxlength="2000"></textarea>
                     <button type="submit" class="btn btn-primary">Send Message</button>
                     <p id="contactStatus" class="form-status" role="status" aria-live="polite"></p>
                 </form>
@@ -686,7 +705,7 @@
             <div class="resume-modal-header">
                 <h3 id="resumeModalTitle">Arvin Askari - Resume</h3>
                 <div class="resume-modal-actions">
-                    <a href="ArvinAskari_Resume.pdf" target="_blank" class="btn btn-secondary">Open in New Tab</a>
+                    <a href="ArvinAskari_Resume.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Open in New Tab</a>
                     <button type="button" id="closeResumeBtn" class="resume-close" aria-label="Close resume viewer">
                         <i class="fas fa-times"></i>
                     </button>
